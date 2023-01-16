@@ -92,7 +92,7 @@ script = SubResource( 5 )
 radius = 35.2476
 height = 58.7286
 
-[node name="Player1" type="KinematicBody2D"]
+[node name="Player1" type="KinematicBody2D" groups=["player"]]
 position = Vector2( 736, 311 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -105,14 +105,14 @@ position = Vector2( -237, 219 )
 rotation = -1.5708
 scale = Vector2( 1.86975, 1.53797 )
 frames = SubResource( 6 )
-frame = 51
+frame = 36
 playing = true
 
 [node name="Fire2" type="AnimatedSprite" parent="Fire"]
 position = Vector2( 3.20895, 15.605 )
 scale = Vector2( 1.01266, 1.19117 )
 frames = SubResource( 6 )
-frame = 58
+frame = 43
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
