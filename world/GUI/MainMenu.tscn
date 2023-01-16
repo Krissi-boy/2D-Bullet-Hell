@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://world/backgrounds/space sky.png" type="Texture" id=1]
+[ext_resource path="res://world/GUI/fonts/FutilePro.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 35
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 35
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+font_data = ExtResource( 2 )
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 760.0
+margin_bottom = 2038.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+flip_h = true
+
+[node name="JourneyLabel" type="Label" parent="."]
+margin_left = 104.0
+margin_top = 64.0
+margin_right = 658.0
+margin_bottom = 173.0
+custom_fonts/font = SubResource( 1 )
+text = "JOURNEY TO SPACE
+"
+align = 1
+
+[node name="BulletLabel" type="Label" parent="."]
+margin_left = 253.0
+margin_top = 112.0
+margin_right = 507.0
+margin_bottom = 139.0
+custom_fonts/font = SubResource( 2 )
+text = "A Bullet Hell Game"
+align = 1
+
+[node name="NewButton" type="Button" parent="."]
+margin_left = 256.0
+margin_top = 264.0
+margin_right = 512.0
+margin_bottom = 302.0
+custom_fonts/font = SubResource( 3 )
+text = "NEW GAME"
+
+[node name="ContButton" type="Button" parent="."]
+margin_left = 256.0
+margin_top = 336.0
+margin_right = 512.0
+margin_bottom = 374.0
+custom_fonts/font = SubResource( 3 )
+text = "CONTINUE"
+
+[node name="ShopButton" type="Button" parent="."]
+margin_left = 256.0
+margin_top = 408.0
+margin_right = 512.0
+margin_bottom = 446.0
+custom_fonts/font = SubResource( 4 )
+text = "SHOP"
+
+[node name="CloseButton" type="Button" parent="."]
+margin_left = 256.0
+margin_top = 536.0
+margin_right = 512.0
+margin_bottom = 574.0
+custom_fonts/font = SubResource( 5 )
+text = "QUIT GAME"
+
+[node name="CredLabel" type="Label" parent="."]
+margin_left = 320.0
+margin_top = 976.0
+margin_right = 450.0
+margin_bottom = 994.0
+custom_fonts/font = SubResource( 6 )
+text = "made by T.K.S"
