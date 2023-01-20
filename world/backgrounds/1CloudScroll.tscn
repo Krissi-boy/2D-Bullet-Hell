@@ -12,3 +12,9 @@ motion_mirroring = Vector2( 0, 1914 )
 [node name="Sprite" type="Sprite" parent="CloudLayer"]
 position = Vector2( 373, 40 )
 texture = ExtResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback_speed = 6.47
+playback/repeat = true
+playback/speed = 6.47
