@@ -20,8 +20,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="2d- Bullet- Hell"
-run/main_scene="res://Test World.tscn"
+config/name="2D-Bullet-Hell"
+run/main_scene="res://"
 config/icon="res://icon.png"
 
 [display]
