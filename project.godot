@@ -24,6 +24,10 @@ config/name="2d- Bullet- Hell"
 run/main_scene="res://world/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SceneTrans="*res://scene_trans.gd"
+
 [display]
 
 window/size/width=750

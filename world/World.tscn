@@ -11,4 +11,3 @@ scale = Vector2( 1.69531, 2.71875 )
 texture = ExtResource( 4 )
 
 [node name="Space" parent="." instance=ExtResource( 3 )]
-visible = false
