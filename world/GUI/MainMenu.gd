@@ -11,4 +11,4 @@ func _on_NewButton_pressed():
 	
 
 func _on_ShopButton_pressed():
-	get_tree().change_scene("res://world/GUI/ShopWeapons.tscn")
+	get_tree().change_scene("res://world/GUI/Shop.tscn")
