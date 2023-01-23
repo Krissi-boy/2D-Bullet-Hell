@@ -20,25 +20,24 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 ## Enemy collisions
 func _on_Enemy_area_entered(area):
-	print("area_entered: ", area)
+	print("Enemy_area_entered: ", area)
 	
-	if area.is_in_group("bullet"): ## Collision with bullet
-		## Plan: When hit by bullet have enemy be damaged based on a damage amount (harm) for the bullet
+	if area.is_in_group("player_bullet"): ## Collision with players bullet
 		self.damage(area.harm) ## Damages enemy (self) with bullets (area) harm
-		print("collision with bullet")
+		print("enemy hit by player bullet")
 		print("bullet harm: ", area.harm, ", enemy health: ", health)
 		area.queue_free()
 		
 		## Possible effect base
-#		var bulletEffect := pBulletEffect.instance()
+#		var bulletEffect := BulletEffect.instance()
 #		bulletEffect.position = position
 #		get_parent().add_child(bulletEffect)
 
 func _on_Enemy_body_entered(body):
-	print("body_entered: ", body)
+	print("Enemy_body_entered: ", body)
 	
 	if body.is_in_group("player"): ## Collision with player
-		body.damage(harm) ## Damages player (body) with enemys harm
+		body.damage(self.harm) ## Damages player (body) with enemys harm
 		self.damage(body.harm) ## Damages enemy (self) with players (body) harm
 		print("collision with player")
 		print("enemy harm: ", self.harm, ", player health: ", body.health)
