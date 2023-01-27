@@ -1,8 +1,12 @@
 extends Area2D
 
 export var vertical_speed := 100
-export var health: int = 5
+export var max_health: int = 5
+export var health: int = max_health
 export var harm = 2 ## Damage the enemy does to others on contact (not projectile damage)
+
+func _ready():
+	$ProgressBar.value = health
 
 func _physics_process(delta):
 	position.y += vertical_speed * delta
@@ -10,6 +14,7 @@ func _physics_process(delta):
 ## Enemy getting damaged
 func damage(amount: int):
 	health -= amount
+	$ProgressBar.value = health
 	if health <= 0:
 		health = 0
 		queue_free()
