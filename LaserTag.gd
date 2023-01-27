@@ -18,6 +18,6 @@ func _physics_process(delta): # delta er standard for 60 FPS
 		
 		
 	
-func timeout(time):		
-yield(get_tree().create_timer(time), "timeout") 
+func timeout(time):pass
+# yield(get_tree().create_timer(time), "timeout")
 # Kode for sette timer. Her skrev jeg "timeout", som jeg kan bruke i en if input, for å refere til denne funksjonen.

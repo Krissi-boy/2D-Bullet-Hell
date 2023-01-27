@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Laser tag/Laser Sprites/61.png" type="Texture" id=1]
 [ext_resource path="res://LaserTag.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 39.0
-height = 86.0
+radius = 7.0
+height = 38.0
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -14,6 +14,10 @@ animations = [ {
 "name": "laser",
 "speed": 5.0
 } ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 7.0
+height = 38.0
 
 [node name="LaserTag" type="Node2D"]
 script = ExtResource( 2 )
@@ -28,7 +32,15 @@ rotation = -1.5708
 shape = SubResource( 2 )
 
 [node name="laser1" type="AnimatedSprite" parent="BulletsLaser"]
+position = Vector2( -0.0561323, -0.0525354 )
+scale = Vector2( 0.408926, 0.34121 )
 frames = SubResource( 1 )
 animation = "laser"
 playing = true
 flip_h = true
+
+[node name="Area2D" type="Area2D" parent="BulletsLaser"]
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletsLaser/Area2D"]
+shape = SubResource( 3 )
