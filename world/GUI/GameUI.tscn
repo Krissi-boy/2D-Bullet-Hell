@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://world/GUI/pauseplease.webp" type="Texture" id=1]
 [ext_resource path="res://world/GUI/fonts/FutilePro.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://world/GUI/HealthBar.gd" type="Script" id=3]
+[ext_resource path="res://world/GUI/progressbars/fullhp.png" type="Texture" id=4]
+[ext_resource path="res://world/GUI/progressbars/emptybar.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -67,13 +70,15 @@ icon = ExtResource( 1 )
 align = 0
 expand_icon = true
 
-[node name="HealthBar" type="ProgressBar" parent="GUI"]
-margin_left = 8.0
-margin_top = 862.0
-margin_right = 534.0
-margin_bottom = 894.0
+[node name="HealthBar" type="TextureProgress" parent="GUI"]
+margin_left = -108.0
+margin_top = 777.0
+margin_right = 953.0
+margin_bottom = 1454.0
 rounded = true
-percent_visible = false
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="HealthLabel" type="Label" parent="GUI"]
 margin_left = 225.0
@@ -83,13 +88,12 @@ margin_bottom = 891.0
 custom_fonts/font = SubResource( 1 )
 text = "HEALTH"
 
-[node name="PowerBar" type="ProgressBar" parent="GUI"]
+[node name="PowerBar" type="TextureProgress" parent="GUI"]
 margin_left = 8.0
 margin_top = 934.0
 margin_right = 534.0
 margin_bottom = 966.0
 rounded = true
-percent_visible = false
 
 [node name="PowerLabel" type="Label" parent="GUI"]
 margin_left = 225.0
