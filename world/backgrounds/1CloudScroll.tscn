@@ -22,7 +22,7 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="CloudLayer" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2( 0, 2038 )
+motion_mirroring = Vector2( 0, 1914 )
 
 [node name="Sprite" type="Sprite" parent="CloudLayer"]
 position = Vector2( 375, -15 )

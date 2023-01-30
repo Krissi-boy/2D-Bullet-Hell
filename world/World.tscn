@@ -1,13 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://world/backgrounds/3SpaceScroll.tscn" type="PackedScene" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
 
 [node name="World_Base" type="Node2D"]
-
-[node name="test sprite" type="Sprite" parent="."]
-position = Vector2( 383, 858 )
-scale = Vector2( 1.69531, 2.71875 )
-texture = ExtResource( 4 )
 
 [node name="Space" parent="." instance=ExtResource( 3 )]
