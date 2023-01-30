@@ -9,13 +9,15 @@ var screen_size
 export var max_health = 5
 export var health: int = max_health
 export var harm = 2 ## Damage the player does to others on contact (not projectile damage)
+export var FRICTION = 50
+export var ACCELERATION = 30
 
 enum {
 	MOVING,
 	IDLE
 }
 
-var state = IDLE
+var state = MOVING
 
 onready var player = get_node(".")
 onready var fire1 = $Fire1
@@ -32,50 +34,62 @@ func _ready():
 func _physics_process(delta): # delta er standard for 60 FPS
 	match state:
 		MOVING:
-			pass
+			move_state(delta)
 		IDLE:
 			pass
 		
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 			
-	if Input.is_action_pressed("ui_up"):
-		#yield(get_tree().create_timer(0.15), "timeout") 
-		velocity.y -= SPEED
-		player.rotation_degrees = 0
-		fire1.visible = FIRE_START # Når spillet kjøres vil AnimatedSprite (Fire3 og Fire4) vises hele tiden (true) 
-		fire2.visible = FIRE_START  
-		fire3.visible = FIRE_START
-		fire4.visible = FIRE_START		
-		
-	elif Input.is_action_pressed("ui_down"):
-		#yield(get_tree().create_timer(0.15), "timeout") 
-		velocity.y += SPEED
-		player.rotation_degrees = 0
+
+
 	
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += SPEED
+func move_state(delta):
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	input_vector = input_vector.normalized()
+	
+	if input_vector != Vector2.ZERO: # hvis velocity ikke er 0, movement 
+		velocity = velocity.move_toward(input_vector * SPEED, ACCELERATION * delta)
+	
+	else:  # idle
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+	
+	if input_vector.x == 1:
 		fire2.visible = FIRE_START # Når høyre knapp trykkes, vil AnimatedSprite (Fire2) vises (true) 
 		$AnimatedSprite.play("run")
 		player.rotation_degrees = 10
 		
-	elif Input.is_action_pressed("ui_left"):
-		velocity.x -= SPEED # Når venstre knapp trykkes, vil hastigheten på venstre sving være satt til det jeg har valgt i variabelen SPEED
+	elif input_vector.x == -1:
 		fire1.visible = FIRE_START # Når venstre knapp trykkes, vil AnimatedSprite (Fire1) vises (true) 
 		$AnimatedSprite.play("run")
 		player.rotation_degrees = -10
-
-
-	if STATE.IDLE:
+		
+	elif input_vector.y == -1:
+		player.rotation_degrees = 0
+		fire1.visible = FIRE_START # Når spillet kjøres vil AnimatedSprite (Fire3 og Fire4) vises hele tiden (true) 
+		fire2.visible = FIRE_START  
+		fire3.visible = FIRE_START
+		fire4.visible = FIRE_START
+		
+	elif input_vector.y == 1:
+		player.rotation_degrees = 0
+		fire1.visible = FIRE_STOP
+		fire2.visible = FIRE_STOP
+		fire3.visible = FIRE_STOP
+		fire4.visible = FIRE_STOP
+		
+	else:
 		$AnimatedSprite.play("idle")
 		player.rotation_degrees = 0
-	
 		# Når spillet står til "tomgang", vil AnimatedSprite (Fire1 og Fire2) ikke vises (false)
 		fire1.visible = FIRE_STOP 
 		fire2.visible = FIRE_STOP
 	
 	
-	move_and_collide(velocity*delta)
+	
+	move_and_collide(velocity)
 		
 	if Input.is_action_just_released("ui_cancel"):
 		pass	
