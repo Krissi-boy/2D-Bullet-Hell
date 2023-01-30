@@ -11,6 +11,7 @@ export var health: int = max_health
 export var harm = 2 ## Damage the player does to others on contact (not projectile damage)
 export var FRICTION = 50
 export var ACCELERATION = 30
+var lasertag = preload ("res://LaserTag.tscn")
 
 enum {
 	MOVING,
@@ -40,6 +41,13 @@ func _physics_process(delta): # delta er standard for 60 FPS
 		
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
+	
+	if Input.is_action_pressed("fire"):
+		print("shot")
+		var lasertag_instance = lasertag.instance()
+		lasertag_instance.position = position
+		print(lasertag_instance.position)
+
 			
 
 
@@ -81,7 +89,6 @@ func move_state(delta):
 		fire4.visible = FIRE_STOP
 		
 	else:
-		$AnimatedSprite.play("idle")
 		player.rotation_degrees = 0
 		# Når spillet står til "tomgang", vil AnimatedSprite (Fire1 og Fire2) ikke vises (false)
 		fire1.visible = FIRE_STOP 
