@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://world/GUI/pauseplease.webp" type="Texture" id=1]
+[ext_resource path="res://world/GUI/fonts/FutilePro.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="GameUI" type="Control"]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="MainRect" type="ColorRect" parent="GUI"]
+margin_left = -3.0
+margin_top = 847.0
+margin_right = 753.0
+margin_bottom = 999.0
+color = Color( 0.423529, 0.411765, 0.443137, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="GUI/MainRect"]
+margin_left = 689.0
+margin_top = 87.0
+margin_right = 749.0
+margin_bottom = 146.0
+color = Color( 0.219608, 0.211765, 0.227451, 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="GUI/MainRect"]
+margin_left = 621.0
+margin_top = 87.0
+margin_right = 681.0
+margin_bottom = 146.0
+color = Color( 0.219608, 0.211765, 0.227451, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="GUI/MainRect"]
+margin_left = 621.0
+margin_top = 15.0
+margin_right = 681.0
+margin_bottom = 74.0
+color = Color( 0.219608, 0.211765, 0.227451, 1 )
+
+[node name="ColorRect6" type="ColorRect" parent="GUI/MainRect"]
+margin_left = 552.0
+margin_top = 87.0
+margin_right = 612.0
+margin_bottom = 146.0
+color = Color( 0.219608, 0.211765, 0.227451, 1 )
+
+[node name="ColorRect7" type="ColorRect" parent="GUI/MainRect"]
+margin_left = 552.0
+margin_top = 15.0
+margin_right = 612.0
+margin_bottom = 74.0
+color = Color( 0.219608, 0.211765, 0.227451, 1 )
+
+[node name="ColorRect5" type="ColorRect" parent="GUI/MainRect"]
+margin_left = 689.0
+margin_top = 15.0
+margin_right = 749.0
+margin_bottom = 74.0
+color = Color( 0.219608, 0.211765, 0.227451, 1 )
+
+[node name="PauseButton" type="Button" parent="GUI"]
+margin_right = 74.0
+margin_bottom = 80.0
+icon = ExtResource( 1 )
+align = 0
+expand_icon = true
+
+[node name="HealthBar" type="ProgressBar" parent="GUI"]
+margin_left = 8.0
+margin_top = 862.0
+margin_right = 534.0
+margin_bottom = 894.0
+rounded = true
+percent_visible = false
+
+[node name="HealthLabel" type="Label" parent="GUI"]
+margin_left = 225.0
+margin_top = 862.0
+margin_right = 333.0
+margin_bottom = 891.0
+custom_fonts/font = SubResource( 1 )
+text = "HEALTH"
+
+[node name="PowerBar" type="ProgressBar" parent="GUI"]
+margin_left = 8.0
+margin_top = 934.0
+margin_right = 534.0
+margin_bottom = 966.0
+rounded = true
+percent_visible = false
+
+[node name="PowerLabel" type="Label" parent="GUI"]
+margin_left = 225.0
+margin_top = 934.0
+margin_right = 320.0
+margin_bottom = 961.0
+custom_fonts/font = SubResource( 1 )
+text = "POWER"
