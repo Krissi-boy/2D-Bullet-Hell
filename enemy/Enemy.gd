@@ -1,5 +1,7 @@
 extends Area2D
 
+const death_effect = preload("res://effect/EnemyDeathEffect.tscn")
+
 export var vertical_speed := 100
 export var max_health: int = 5
 export var health: int = max_health
@@ -17,8 +19,10 @@ func damage(amount: int):
 	$ProgressBar.value = health
 	if health <= 0:
 		health = 0
-		queue_free()
 		print(self, " died")
+		var enemyDeathEffect = death_effect.instance()
+		get_parent().add_child(enemyDeathEffect)
+		enemyDeathEffect.global_position = global_position
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
@@ -31,7 +35,6 @@ func _on_Enemy_area_entered(area):
 		self.damage(area.harm) ## Damages enemy (self) with bullets (area) harm
 		print("enemy hit by player bullet")
 		print("bullet harm: ", area.harm, ", enemy health: ", health)
-		area.queue_free()
 		
 		## Possible effect base
 #		var bulletEffect := BulletEffect.instance()
