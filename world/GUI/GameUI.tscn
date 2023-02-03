@@ -122,7 +122,7 @@ modulate = Color( 1, 1, 1, 0.941176 )
 margin_left = 74.0
 margin_top = 40.0
 margin_right = 675.0
-margin_bottom = 847.0
+margin_bottom = 802.0
 color = Color( 0.219608, 0.207843, 0.247059, 1 )
 
 [node name="Label" type="Label" parent="GUI/PauseMode/PauseWindow"]
