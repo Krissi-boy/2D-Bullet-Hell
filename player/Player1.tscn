@@ -104,7 +104,7 @@ position = Vector2( 33, 168 )
 rotation = -1.5708
 scale = Vector2( 3.05957, 1.72318 )
 frames = SubResource( 6 )
-frame = 42
+frame = 45
 playing = true
 
 [node name="Fire2" type="AnimatedSprite" parent="."]
@@ -112,7 +112,7 @@ position = Vector2( -54, 183 )
 rotation = -1.5708
 scale = Vector2( 3.52779, 2.20746 )
 frames = SubResource( 6 )
-frame = 42
+frame = 45
 playing = true
 
 [node name="Fire3" type="AnimatedSprite" parent="."]
@@ -120,7 +120,7 @@ position = Vector2( -17, 152 )
 rotation = -1.5708
 scale = Vector2( 1.86975, 1.53797 )
 frames = SubResource( 6 )
-frame = 35
+frame = 38
 playing = true
 
 [node name="Fire4" type="AnimatedSprite" parent="."]
@@ -128,7 +128,7 @@ position = Vector2( 0, 148 )
 rotation = -1.5708
 scale = Vector2( 1.86975, 1.53797 )
 frames = SubResource( 6 )
-frame = 35
+frame = 38
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -151,4 +151,9 @@ position = Vector2( 1, 27 )
 scale = Vector2( 1.50365, 1.25364 )
 shape = SubResource( 4 )
 
+[node name="BulletPosition" type="Position2D" parent="."]
+position = Vector2( 1, -121 )
+
+[connection signal="child_entered_tree" from="." to="." method="_on_Player1_child_entered_tree"]
+[connection signal="spawn_laser" from="." to="." method="_on_Player1_spawn_laser"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

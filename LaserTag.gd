@@ -1,11 +1,17 @@
-extends Node2D
-var motion = Vector2()
-const UP = Vector2(0, -1)
+extends Area2D
 
+export var LASER_SPEED = 500
 
-func _ready():
-	pass
 func _process(delta):
-	pass	
-	
-	
+	position.y -= LASER_SPEED * delta
+	print("moving")
+
+func _on_LaserTag_area_entered(area):
+	if area.is_in_group("Player1"):
+		area.take.damage(1)
+		queue_free()
+
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()

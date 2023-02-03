@@ -19,28 +19,29 @@ animations = [ {
 radius = 7.0
 height = 38.0
 
-[node name="LaserTag" type="Node2D"]
+[node name="LaserTag" type="Area2D"]
 script = ExtResource( 2 )
 
-[node name="BulletsLaser" type="KinematicBody2D" parent="."]
-rotation = 1.5708
+[node name="Timer" type="Timer" parent="."]
 
-[node name="Timer" type="Timer" parent="BulletsLaser"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletsLaser"]
-rotation = -1.5708
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
-[node name="laser1" type="AnimatedSprite" parent="BulletsLaser"]
-position = Vector2( -0.0561323, -0.0525354 )
+[node name="laser1" type="AnimatedSprite" parent="."]
+position = Vector2( 0.0525356, -0.0561321 )
+rotation = 1.5708
 scale = Vector2( 0.408926, 0.34121 )
 frames = SubResource( 1 )
 animation = "laser"
 playing = true
 flip_h = true
 
-[node name="Area2D" type="Area2D" parent="BulletsLaser"]
-rotation = -1.5708
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletsLaser/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_LaserTag_area_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
