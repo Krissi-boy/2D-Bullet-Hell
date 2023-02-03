@@ -118,7 +118,7 @@ align = 0
 expand_icon = true
 
 [node name="PauseWindow" type="ColorRect" parent="GUI/PauseMode"]
-visible = false
+modulate = Color( 1, 1, 1, 0.941176 )
 margin_left = 74.0
 margin_top = 40.0
 margin_right = 675.0
