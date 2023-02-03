@@ -1,7 +1,7 @@
 extends ParallaxBackground
 
 
-export var camera_velocity: Vector2 = Vector2( 0, 250 );
+export var camera_velocity: Vector2 = Vector2( 0, 300 );
 
 
 func _process(delta: float) -> void:
