@@ -26,7 +26,12 @@ func damage(amount: int):
 		get_parent().add_child(enemyDeathEffect)
 		enemyDeathEffect.global_position = global_position
 		queue_free()
-	
+
+func shoot():
+	var bullet_instance = bullet.instance()
+	bullet_instance.global_position = global_position
+	world.add_child(bullet_instance)
+#	bullet_instance.set_vector(shoot_vector)
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
