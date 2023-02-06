@@ -11,6 +11,6 @@ script = ExtResource( 3 )
 position = Vector2( 370, 683 )
 
 [node name="LaserTag" parent="." instance=ExtResource( 2 )]
-position = Vector2( 370, 536 )
+position = Vector2( 368, 536 )
 
 [connection signal="spawn_laser" from="Player1" to="." method="_on_Player1_spawn_laser"]

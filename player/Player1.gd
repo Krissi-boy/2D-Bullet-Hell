@@ -1,6 +1,7 @@
 extends KinematicBody2D
 const UP = Vector2(0, -1)
 signal spawn_laser(location)
+onready var timer := $Timer
 
 var SPEED = 7
 var FIRE_START = true
@@ -45,14 +46,13 @@ func _physics_process(delta): # delta er standard for 60 FPS
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 	
-	
+
 	if Input.is_action_pressed("fire"):
-		emit_signal("spawn_laser", BULLET_POSITION.global_position)
+		if timer.is_stopped(): 
+			emit_signal("spawn_laser", BULLET_POSITION.global_position)
+			timer.start(0.5)
 
-			
 
-
-	
 func move_state(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
