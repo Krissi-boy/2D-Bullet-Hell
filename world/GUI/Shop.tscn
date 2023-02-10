@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://world/backgrounds/3SpaceScroll.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/GUI/ShopWeapons.gd" type="Script" id=2]
 [ext_resource path="res://world/GUI/fonts/FutilePro.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://world/GUI/theme.tres" type="Theme" id=4]
+[ext_resource path="res://world/Shop Items/plane fr.png" type="Texture" id=5]
+[ext_resource path="res://world/Shop Items/blue plane.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -10,6 +13,14 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 35
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -42,6 +53,103 @@ text = "CLOSE"
 [node name="Shop_UI" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+
+[node name="ShopRockets" type="ColorRect" parent="Shop_UI"]
+margin_left = 121.0
+margin_top = 209.0
+margin_right = 631.0
+margin_bottom = 849.0
+color = Color( 0.270588, 0.262745, 0.294118, 1 )
+
+[node name="Prize 5" type="Button" parent="Shop_UI/ShopRockets"]
+margin_left = 254.0
+margin_top = 131.0
+margin_right = 510.0
+margin_bottom = 191.0
+custom_fonts/font = SubResource( 4 )
+text = "$ 50"
+
+[node name="Prize 10" type="Button" parent="Shop_UI/ShopRockets"]
+margin_left = 255.0
+margin_top = 193.0
+margin_right = 511.0
+margin_bottom = 253.0
+custom_fonts/font = SubResource( 4 )
+text = "$ 100"
+
+[node name="Prize 15" type="Button" parent="Shop_UI/ShopRockets"]
+margin_left = 255.0
+margin_top = 257.0
+margin_right = 511.0
+margin_bottom = 317.0
+custom_fonts/font = SubResource( 4 )
+text = "$ 150"
+
+[node name="Prize 20" type="Button" parent="Shop_UI/ShopRockets"]
+margin_left = 255.0
+margin_top = 319.0
+margin_right = 511.0
+margin_bottom = 379.0
+custom_fonts/font = SubResource( 4 )
+text = "$ 200"
+
+[node name="Prize 25" type="Button" parent="Shop_UI/ShopRockets"]
+margin_left = 255.0
+margin_top = 383.0
+margin_right = 511.0
+margin_bottom = 443.0
+custom_fonts/font = SubResource( 4 )
+text = "$ 250"
+
+[node name="Locked" type="Button" parent="Shop_UI/ShopRockets"]
+margin_left = 256.0
+margin_top = 447.0
+margin_right = 512.0
+margin_bottom = 507.0
+custom_fonts/font = SubResource( 4 )
+text = "LOCKED"
+
+[node name="ColorRect" type="ColorRect" parent="Shop_UI/ShopRockets"]
+margin_left = 2.0
+margin_top = 131.0
+margin_right = 251.0
+margin_bottom = 190.0
+theme = ExtResource( 4 )
+color = Color( 0.227451, 0.219608, 0.258824, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Shop_UI/ShopRockets"]
+margin_left = 2.0
+margin_top = 193.0
+margin_right = 251.0
+margin_bottom = 252.0
+theme = ExtResource( 4 )
+color = Color( 0.227451, 0.219608, 0.258824, 1 )
+
+[node name="PlaneFr" type="Sprite" parent="Shop_UI/ShopRockets"]
+position = Vector2( 38.75, 158.375 )
+scale = Vector2( 0.0940934, 0.0817669 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Shop_UI/ShopRockets"]
+margin_left = 102.0
+margin_top = 145.0
+margin_right = 217.0
+margin_bottom = 172.0
+custom_fonts/font = SubResource( 8 )
+text = "Blanca"
+
+[node name="Label2" type="Label" parent="Shop_UI/ShopRockets"]
+margin_left = 118.0
+margin_top = 210.0
+margin_right = 179.0
+margin_bottom = 237.0
+custom_fonts/font = SubResource( 9 )
+text = "Azul"
+
+[node name="BluePlane" type="Sprite" parent="Shop_UI/ShopRockets"]
+position = Vector2( 36, 224 )
+scale = Vector2( 0.114167, 0.100561 )
+texture = ExtResource( 6 )
 
 [node name="ShopWeapons" type="ColorRect" parent="Shop_UI"]
 margin_left = 121.0
@@ -90,58 +198,11 @@ margin_bottom = 443.0
 custom_fonts/font = SubResource( 4 )
 text = "$ 25"
 
-[node name="ShopRockets" type="ColorRect" parent="Shop_UI"]
-margin_left = 121.0
-margin_top = 209.0
-margin_right = 631.0
-margin_bottom = 849.0
-color = Color( 0.270588, 0.262745, 0.294118, 1 )
-
-[node name="Prize 5" type="Button" parent="Shop_UI/ShopRockets"]
-margin_left = 254.0
-margin_top = 131.0
-margin_right = 510.0
-margin_bottom = 191.0
-custom_fonts/font = SubResource( 4 )
-text = "$ 5"
-
-[node name="Prize 10" type="Button" parent="Shop_UI/ShopRockets"]
-margin_left = 255.0
-margin_top = 193.0
-margin_right = 511.0
-margin_bottom = 253.0
-custom_fonts/font = SubResource( 4 )
-text = "$ 10"
-
-[node name="Prize 15" type="Button" parent="Shop_UI/ShopRockets"]
-margin_left = 255.0
-margin_top = 257.0
-margin_right = 511.0
-margin_bottom = 317.0
-custom_fonts/font = SubResource( 4 )
-text = "$ 15"
-
-[node name="Prize 20" type="Button" parent="Shop_UI/ShopRockets"]
-margin_left = 255.0
-margin_top = 319.0
-margin_right = 511.0
-margin_bottom = 379.0
-custom_fonts/font = SubResource( 4 )
-text = "$ 20"
-
-[node name="Prize 25" type="Button" parent="Shop_UI/ShopRockets"]
-margin_left = 255.0
-margin_top = 383.0
-margin_right = 511.0
-margin_bottom = 443.0
-custom_fonts/font = SubResource( 4 )
-text = "$ 25"
-
 [node name="ShopSquare" type="ColorRect" parent="Shop_UI"]
-margin_left = 120.0
-margin_top = 192.0
-margin_right = 632.0
-margin_bottom = 278.0
+margin_left = 121.0
+margin_top = 193.0
+margin_right = 633.0
+margin_bottom = 279.0
 color = Color( 0.180392, 0.172549, 0.203922, 1 )
 
 [node name="ShopLabel" type="Label" parent="Shop_UI/ShopSquare"]
