@@ -37,6 +37,16 @@ window/size/height=1000
 version_control_autoload_on_startup=true
 version_control_plugin_name="GitAPI"
 
+[display]
+
+window/size/width=750
+window/size/height=1000
+
+[editor]
+
+version_control_autoload_on_startup=true
+version_control_plugin_name="GitAPI"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
