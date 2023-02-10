@@ -50,7 +50,8 @@ func _physics_process(delta): # delta er standard for 60 FPS
 	if Input.is_action_pressed("fire"):
 		if timer.is_stopped(): 
 			emit_signal("spawn_laser", BULLET_POSITION.global_position)
-			timer.start(0.5)
+			timer.start(0.5) 
+			print("shot")
 
 
 func move_state(delta):
