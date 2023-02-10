@@ -89,11 +89,16 @@ func move_state(delta):
 		fire3.visible = FIRE_STOP
 		fire4.visible = FIRE_STOP
 		
+		
 	else:
 		player.rotation_degrees = 0
 		# Når spillet står til "tomgang", vil AnimatedSprite (Fire1 og Fire2) ikke vises (false)
-		fire1.visible = FIRE_STOP 
+		fire3.visible = FIRE_START
+		fire4.visible = FIRE_START
+		
+		fire1.visible = FIRE_STOP
 		fire2.visible = FIRE_STOP
+		
 	
 	
 	
