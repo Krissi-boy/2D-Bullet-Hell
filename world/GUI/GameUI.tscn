@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://world/GUI/pauseplease.webp" type="Texture" id=1]
 [ext_resource path="res://world/GUI/fonts/FutilePro.ttf" type="DynamicFontData" id=2]
@@ -14,6 +14,18 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 35
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 35
 font_data = ExtResource( 2 )
 
 [node name="GameUI" type="Control"]
@@ -79,12 +91,12 @@ rect_scale = Vector2( 1.01, 1 )
 color = Color( 0.219608, 0.211765, 0.227451, 1 )
 
 [node name="HealthBar" type="ProgressBar" parent="GUI/MainUIRect"]
-margin_left = 15.8416
+margin_left = 16.0
 margin_top = 13.0
-margin_right = 538.842
+margin_right = 539.0
 margin_bottom = 71.0
 theme = ExtResource( 3 )
-value = 50.0
+value = 100.0
 percent_visible = false
 
 [node name="HealthLabel" type="Label" parent="GUI/MainUIRect/HealthBar"]
@@ -102,7 +114,6 @@ margin_top = 87.0
 margin_right = 538.842
 margin_bottom = 145.0
 theme = ExtResource( 4 )
-value = 50.0
 percent_visible = false
 
 [node name="PowerLabel" type="Label" parent="GUI/MainUIRect/PowerBar"]
@@ -151,6 +162,7 @@ margin_top = 175.0
 margin_right = 382.0
 margin_bottom = 226.0
 theme = ExtResource( 7 )
+custom_fonts/font = SubResource( 3 )
 text = "Retry?"
 
 [node name="ShopButton" type="Button" parent="GUI/PauseMode/PauseWindow"]
@@ -159,6 +171,7 @@ margin_top = 322.0
 margin_right = 428.0
 margin_bottom = 373.0
 theme = ExtResource( 7 )
+custom_fonts/font = SubResource( 4 )
 text = "Go To Shop"
 
 [node name="MenuButton" type="Button" parent="GUI/PauseMode/PauseWindow"]
@@ -167,6 +180,7 @@ margin_top = 427.0
 margin_right = 417.0
 margin_bottom = 478.0
 theme = ExtResource( 7 )
+custom_fonts/font = SubResource( 5 )
 text = "Main Menu"
 
 [node name="CloseButton" type="Button" parent="GUI/PauseMode/PauseWindow"]

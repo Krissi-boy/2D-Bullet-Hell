@@ -27,12 +27,19 @@ font_data = ExtResource( 4 )
 [node name="World" type="Node2D"]
 script = ExtResource( 8 )
 
-[node name="Clouds" parent="." instance=ExtResource( 1 )]
+[node name="GameWorld" type="Node2D" parent="."]
 
-[node name="Midnight" parent="." instance=ExtResource( 2 )]
+[node name="Clouds" parent="GameWorld" instance=ExtResource( 1 )]
 
-[node name="Space" parent="." instance=ExtResource( 3 )]
+[node name="Midnight" parent="GameWorld" instance=ExtResource( 2 )]
 visible = false
+
+[node name="Space" parent="GameWorld" instance=ExtResource( 3 )]
+visible = false
+
+[node name="ScoreTimer" type="Timer" parent="GameWorld"]
+wait_time = 0.084
+autostart = true
 
 [node name="UserInterface" type="Control" parent="."]
 margin_right = 40.0
@@ -96,16 +103,26 @@ text = "0"
 align = 1
 uppercase = true
 
-[node name="ScoreTimer" type="Timer" parent="."]
-wait_time = 0.084
-autostart = true
+[node name="MoneyLabel" type="Label" parent="."]
+margin_left = 647.0
+margin_top = 8.0
+margin_right = 763.0
+margin_bottom = 31.0
+theme = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "0 $"
+align = 1
+uppercase = true
 
 [node name="GameUI" parent="." instance=ExtResource( 5 )]
 
+[connection signal="timeout" from="GameWorld/ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="pressed" from="RetryScreen/RetryWindow/RetryButton" to="RetryScreen" method="_on_RetryButton_pressed"]
 [connection signal="pressed" from="RetryScreen/RetryWindow/ShopButton" to="RetryScreen" method="_on_ShopButton_pressed"]
 [connection signal="pressed" from="RetryScreen/RetryWindow/MenuButton" to="RetryScreen" method="_on_MenuButton_pressed"]
-[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 
-[editable path="Clouds"]
-[editable path="Midnight"]
+[editable path="GameWorld/Clouds"]
+[editable path="GameWorld/Midnight"]
+[editable path="GameWorld/Space"]
+[editable path="GameUI"]
