@@ -40,9 +40,9 @@ margin_bottom = -52.0
 custom_styles/fg = SubResource( 3 )
 max_value = 5.0
 
-[node name="ShootTimer" type="Timer" parent="."]
-
 [node name="Rotator" type="Node2D" parent="."]
+
+[node name="ShootTimer" type="Timer" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_Enemy_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]

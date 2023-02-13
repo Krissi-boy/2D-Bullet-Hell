@@ -4,7 +4,7 @@ const death_effect_scene = preload("res://effect/EnemyDeathEffect.tscn")
 const bullet_scene = preload("res://bullet/Bullet2.tscn")
 onready var world = $".."
 
-export var vertical_speed := 100
+export var speed := 80
 export var max_health: int = 5
 export var health: int = max_health
 export var harm = 2 # Damage the enemy does to others on contact (not projectile damage)
@@ -14,8 +14,8 @@ onready var shoot_timer = $ShootTimer
 onready var shot_rotator = $Rotator
 export var shot_rotate_speed = 300
 export var shoot_timer_wait = 0.13
-export var shot_spawn_count = 4 # Does not work; always only spawns 1 (?)
-export var shoot_radius = 40
+export var shot_spawn_count = 1
+export var shoot_radius = 50
 export var shoot_interval = 0.1
 
 func _ready():
@@ -25,7 +25,7 @@ func _ready():
 	## Spawn point for bullet shots
 	for i in range(shot_spawn_count):
 		var spawn_point = Node2D.new()
-		var pos = Vector2(shoot_radius, 0).rotated(step * 1)
+		var pos = Vector2(shoot_radius, 0).rotated(step * i)
 		spawn_point.position = pos
 		spawn_point.rotation = pos.angle()
 		shot_rotator.add_child(spawn_point)
@@ -42,9 +42,13 @@ func _on_ShootTimer_timeout():
 		bullet.rotation = s.global_rotation # Rotates to match angle
 
 func _physics_process(delta):
-#	position.y += vertical_speed * delta
 	var new_rotation = shot_rotator.rotation_degrees + shot_rotate_speed * delta
 	shot_rotator.rotation_degrees = fmod(new_rotation, 360)
+	
+#	position += transform.y * speed * delta
+	print(position.y)
+	if position.y < 200:
+		position += transform.y * speed * delta
 
 ## Enemy getting damaged
 func damage(amount: int):
@@ -59,19 +63,11 @@ func damage(amount: int):
 		death_effect.global_position = global_position
 		queue_free()
 
-#func shoot():
-#	var bullet_instance = bullet_scene.instance()
-#	bullet_instance.global_position = global_position
-#	world.add_child(bullet_instance)
-##	bullet_instance.set_vector(shoot_vector)
-
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 ## Enemy collisions
 func _on_Enemy_area_entered(area):
-	print("Enemy_area_entered: ", area)
-	
 	if area.is_in_group("player_bullet"): ## Collision with players bullet
 		damage(area.harm) ## Damages enemy (self) with bullets (area) harm
 		print("enemy hit by player bullet")

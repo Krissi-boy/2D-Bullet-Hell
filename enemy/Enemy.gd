@@ -3,7 +3,7 @@ extends Area2D
 const death_effect_scene = preload("res://effect/EnemyDeathEffect.tscn")
 const bullet_scene = preload("res://bullet/Bullet1.tscn")
 
-export var vertical_speed := 100
+export var speed := 100
 export var max_health: int = 5
 export var health: int = max_health
 export var harm = 2 ## Damage the enemy does to others on contact (not projectile damage)
@@ -12,7 +12,7 @@ func _ready():
 	$ProgressBar.value = health
 
 func _physics_process(delta):
-	position.y += vertical_speed * delta
+	position += transform.y * speed * delta
 	
 ## Enemy getting damaged
 func damage(amount: int):
