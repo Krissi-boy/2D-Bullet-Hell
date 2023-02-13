@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/melancholia-940.mp3-bb07cf2da585f7d89e7c919151a51008.mp3str"
+
+[deps]
+
+source_file="res://music sounds/melancholia-940.mp3"
+dest_files=[ "res://.import/melancholia-940.mp3-bb07cf2da585f7d89e7c919151a51008.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

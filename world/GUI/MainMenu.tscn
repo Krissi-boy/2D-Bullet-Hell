@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://world/backgrounds/3SpaceScroll.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/GUI/fonts/FutilePro.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://world/GUI/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://music sounds/melancholia-940.mp3" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -84,6 +85,9 @@ margin_right = 450.0
 margin_bottom = 994.0
 custom_fonts/font = SubResource( 6 )
 text = "made by T.K.S"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="pressed" from="NewButton" to="." method="_on_NewButton_pressed"]
 [connection signal="pressed" from="ShopButton" to="." method="_on_ShopButton_pressed"]

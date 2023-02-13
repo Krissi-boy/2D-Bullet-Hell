@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/my-kind-of-madness-mad-scientist-instrumental-electronic-dance-136405.mp3-2b6b5ea1a7acf14f66237fc84b406fe5.mp3str"
+
+[deps]
+
+source_file="res://music sounds/my-kind-of-madness-mad-scientist-instrumental-electronic-dance-136405.mp3"
+dest_files=[ "res://.import/my-kind-of-madness-mad-scientist-instrumental-electronic-dance-136405.mp3-2b6b5ea1a7acf14f66237fc84b406fe5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
