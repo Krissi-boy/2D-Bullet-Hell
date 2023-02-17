@@ -36,6 +36,17 @@ margin_bottom = -48.0
 custom_styles/fg = SubResource( 3 )
 max_value = 5.0
 
+[node name="ShootPositions" type="Node2D" parent="."]
+
+[node name="LeftGun" type="Node2D" parent="ShootPositions"]
+position = Vector2( -20, 31 )
+
+[node name="RightGun" type="Node2D" parent="ShootPositions"]
+position = Vector2( 20, 31 )
+
+[node name="ShootTimer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="." to="." method="_on_Enemy_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]

@@ -13,7 +13,7 @@ export var harm = 2 # Damage the enemy does to others on contact (not projectile
 onready var shoot_timer = $ShootTimer
 onready var shot_rotator = $Rotator
 export var shot_rotate_speed = 300
-export var shoot_timer_wait = 0.13
+export var shoot_timer_wait = 0.1
 export var shot_spawn_count = 1
 export var shoot_radius = 50
 export var shoot_interval = 0.1
@@ -35,19 +35,19 @@ func _ready():
 
 ## When shoot_interval for the shoot_timer is up this runs
 func _on_ShootTimer_timeout():
-	for s in shot_rotator.get_children():
+	for child in shot_rotator.get_children():
 		var bullet = bullet_scene.instance()
 		get_tree().root.add_child(bullet)
-		bullet.position = s.global_position
-		bullet.rotation = s.global_rotation # Rotates to match angle
+		bullet.position = child.global_position
+		bullet.rotation = child.global_rotation # Rotates to match angle
 
 func _physics_process(delta):
 	var new_rotation = shot_rotator.rotation_degrees + shot_rotate_speed * delta
 	shot_rotator.rotation_degrees = fmod(new_rotation, 360)
 	
 #	position += transform.y * speed * delta
-	print(position.y)
 	if position.y < 200:
+		print("enemy stopped")
 		position += transform.y * speed * delta
 
 ## Enemy getting damaged

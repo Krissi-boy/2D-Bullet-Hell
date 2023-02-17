@@ -1,10 +1,11 @@
 extends Area2D
 
-export var speed: float = 100
+export var speed = 150
 export var harm = 2
 
 func _physics_process(delta):
-	position += transform.x * speed * delta
+#	position += transform.x * speed * delta
+	position += transform.y * speed * delta
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()

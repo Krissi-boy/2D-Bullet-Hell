@@ -3,17 +3,25 @@ extends Area2D
 const death_effect_scene = preload("res://effect/EnemyDeathEffect.tscn")
 const bullet_scene = preload("res://bullet/Bullet1.tscn")
 
-export var speed := 100
+export var speed = 70
 export var max_health: int = 5
 export var health: int = max_health
 export var harm = 2 ## Damage the enemy does to others on contact (not projectile damage)
 onready var world = $".."
+
+onready var shoot_positions = $ShootPositions
+onready var shoot_timer = $ShootTimer
+export var shoot_timer_wait = 0.5
+
 func _ready():
 	$ProgressBar.value = health
+	
+	shoot_timer.wait_time = shoot_timer_wait
+	shoot_timer.start()
 
 func _physics_process(delta):
 	position += transform.y * speed * delta
-	
+
 ## Enemy getting damaged
 func damage(amount: int):
 	health -= amount
@@ -27,11 +35,12 @@ func damage(amount: int):
 		death_effect.global_position = global_position
 		queue_free()
 
-func shoot():
-	var bullet_instance = bullet_scene.instance()
-	bullet_instance.global_position = global_position
-	world.add_child(bullet_instance)
-#	bullet_instance.set_vector(shoot_vector)
+## Shoot timer
+func _on_ShootTimer_timeout():
+	for s in shoot_positions.get_children():
+		var bullet = bullet_scene.instance()
+		get_tree().root.add_child(bullet)
+		bullet.global_position = s.global_position
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
