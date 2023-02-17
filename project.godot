@@ -29,7 +29,6 @@ config/icon="res://icon.png"
 Pause="*res://world/Pause.tscn"
 ButtonPlayerSound="*res://world/GUI/ButtonPlayerSound.tscn"
 BackgroundMusic="*res://world/GUI/BackgroundMusic.tscn"
-SceneTrans="*res://scene_trans.gd"
 
 [display]
 
