@@ -4,7 +4,7 @@ const death_effect_scene = preload("res://effect/EnemyDeathEffect.tscn")
 const bullet_scene = preload("res://bullet/Bullet2.tscn")
 onready var world = $".."
 
-export var speed := 80
+export var speed = 200
 export var max_health: int = 5
 export var health: int = max_health
 export var harm = 2 # Damage the enemy does to others on contact (not projectile damage)
@@ -12,11 +12,12 @@ export var harm = 2 # Damage the enemy does to others on contact (not projectile
 ## Bullet shooting related variables
 onready var shoot_timer = $ShootTimer
 onready var shot_rotator = $Rotator
-export var shot_rotate_speed = 300
+export var shot_rotate_speed = 250
 export var shoot_timer_wait = 0.1
 export var shot_spawn_count = 1
 export var shoot_radius = 50
 export var shoot_interval = 0.1
+export var bullet_speed = 150
 
 func _ready():
 	$ProgressBar.value = health
@@ -40,6 +41,7 @@ func _on_ShootTimer_timeout():
 		get_tree().root.add_child(bullet)
 		bullet.position = child.global_position
 		bullet.rotation = child.global_rotation # Rotates to match angle
+		bullet.speed = speed + bullet_speed
 
 func _physics_process(delta):
 	var new_rotation = shot_rotator.rotation_degrees + shot_rotate_speed * delta

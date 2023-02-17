@@ -4,7 +4,6 @@ export var speed = 150
 export var harm = 2
 
 func _physics_process(delta):
-#	position += transform.x * speed * delta
 	position += transform.y * speed * delta
 
 func _on_VisibilityNotifier2D_screen_exited():
