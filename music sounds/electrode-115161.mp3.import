@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/electrode-115161.mp3-ff0f7697feef74f4d3ca07389d0eed87.mp3str"
+
+[deps]
+
+source_file="res://music sounds/electrode-115161.mp3"
+dest_files=[ "res://.import/electrode-115161.mp3-ff0f7697feef74f4d3ca07389d0eed87.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
