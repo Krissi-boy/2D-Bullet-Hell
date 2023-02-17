@@ -2,7 +2,8 @@ extends Node2D
 
 
 var Laser = preload("res://LaserTag.tscn")
-
+var score = 0
+var money = 0
 
 func _on_Player1_spawn_laser(location):
 	var l = Laser.instance()
@@ -10,11 +11,6 @@ func _on_Player1_spawn_laser(location):
 	add_child(l)
 	print("laserspawn")
 	
-
-
-var score = 0
-var money = 0
-
 
 func _ready():
 	new_game()
