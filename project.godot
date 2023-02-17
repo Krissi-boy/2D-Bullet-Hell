@@ -26,7 +26,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Pause="res://world/Pause.tscn"
+Pause="*res://world/Pause.tscn"
 
 [display]
 

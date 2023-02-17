@@ -42,7 +42,3 @@ func _on_ScoreTimer_timeout():
 func _paused():
 	pass
 	#$GameWorld/ScoreTimer.stop()
-	
-#func lose_health():
-#	if score == 100:
-#		$HealthBar.value = 70
