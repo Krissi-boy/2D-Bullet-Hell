@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="2d- Bullet- Hell"
-run/main_scene="res://world/GUI/MainMenu.tscn"
+run/main_scene="res://world/World.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -29,6 +29,7 @@ config/icon="res://icon.png"
 Pause="*res://world/Pause.tscn"
 ButtonPlayerSound="*res://world/GUI/ButtonPlayerSound.tscn"
 BackgroundMusic="*res://world/GUI/BackgroundMusic.tscn"
+SceneTrans="*res://scene_trans.gd"
 
 [display]
 
