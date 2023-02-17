@@ -14,7 +14,7 @@ position = Vector2( 370, 683 )
 position = Vector2( 368, 536 )
 
 [node name="Power_Ups_spawn" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true
 
 [connection signal="spawn_laser" from="Player1" to="." method="_on_Player1_spawn_laser"]

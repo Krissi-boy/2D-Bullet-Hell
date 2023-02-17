@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="2d- Bullet- Hell"
-run/main_scene="res://player/Player1.tscn"
+run/main_scene="res://world_test_delete.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -3,10 +3,16 @@ const UP = Vector2(0, -1)
 signal spawn_laser(location)
 onready var timer := $Timer
 
+var set_speed = 7
 var SPEED = 7
 var FIRE_START = true
 var FIRE_STOP = false
 var screen_size
+
+
+var shield_on = false 
+
+
 
 export var max_health = 5
 export var health: int = max_health
@@ -122,8 +128,25 @@ func timeout(time):
 	
 ## Player getting damaged
 func damage(amount: int): # Når bullets eller noe treffes enemies så kjøres denne hitboxen 
-	health -= amount
+	if shield_on == true:
+		pass
+	if shield_on == false:
+		health -= amount
+		
 	if health <= 0:
 		health = 0
 		queue_free()
 		print(self, " died") # died blir printet ut når man dør
+
+func set_shield():
+	if shield_on == true:
+		$ShieldTrans.visible = true
+		$Shield_timer.start(10)
+	else:
+		$ShieldTrans.visible = false
+
+
+
+func _on_Shield_timer_timeout():
+	shield_on = false
+	set_shield()
