@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://world/backgrounds/3SpaceScroll.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/GUI/ShopWeapons.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://world/Shop Items/plane fr.png" type="Texture" id=5]
 [ext_resource path="res://world/Shop Items/blue plane.png" type="Texture" id=6]
 [ext_resource path="res://music sounds/beep-6-96243.mp3" type="AudioStream" id=7]
+[ext_resource path="res://music sounds/electrode-115161.mp3" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -234,6 +235,9 @@ text = "Weapons"
 
 [node name="ButtonSound" type="AudioStreamPlayer2D" parent="Shop_UI"]
 stream = ExtResource( 7 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 
 [connection signal="pressed" from="CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="Shop_UI/Rockets" to="." method="_on_Rockets_pressed"]

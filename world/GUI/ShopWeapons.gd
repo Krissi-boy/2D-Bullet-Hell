@@ -2,11 +2,14 @@ extends Node2D
 
 
 
+func _ready():
+	$BackgroundMusic.play()
+
+
 func _on_CloseButton_pressed():
 	ButtonPlayerSound.play()
 	get_tree().change_scene("res://world/GUI/MainMenu.tscn")
 	
-
 
 func _on_Rockets_pressed():
 	$Shop_UI/ShopRockets.visible = true
@@ -23,7 +26,6 @@ func _on_Weapons_pressed():
 	$Shop_UI/Rockets.modulate = "#ffffff"
 	_play_button_sound()
 	
-
 
 func _play_button_sound():
 	$Shop_UI/ButtonSound.play()

@@ -39,11 +39,9 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="MidnightLayer" type="ParallaxLayer" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 motion_mirroring = Vector2( 0, 2038 )
 
 [node name="Sprite" type="Sprite" parent="MidnightLayer"]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 376, 0 )
 scale = Vector2( 1.03743, 1 )
 texture = ExtResource( 1 )

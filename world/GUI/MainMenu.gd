@@ -1,5 +1,7 @@
 extends Node2D
 
+func _ready():
+	$BackgroundMusic.play()
 
 func _on_QuitButton_pressed():
 	get_tree().quit()

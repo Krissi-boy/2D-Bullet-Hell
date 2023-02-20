@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://world/backgrounds/1CloudScroll.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/backgrounds/2MidnightScroll.tscn" type="PackedScene" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://world/GUI/theme.tres" type="Theme" id=6]
 [ext_resource path="res://world/RetryScreen.gd" type="Script" id=7]
 [ext_resource path="res://world/World.gd" type="Script" id=8]
+[ext_resource path="res://music sounds/indigo-946.mp3" type="AudioStream" id=9]
+[ext_resource path="res://music sounds/electrode-115161.mp3" type="AudioStream" id=10]
+[ext_resource path="res://music sounds/my-kind-of-madness-mad-scientist-instrumental-electronic-dance-136405.mp3" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=4]
 size = 60
@@ -40,6 +43,15 @@ visible = false
 [node name="ScoreTimer" type="Timer" parent="GameWorld"]
 wait_time = 0.084
 autostart = true
+
+[node name="CloudMusic" type="AudioStreamPlayer" parent="GameWorld"]
+stream = ExtResource( 10 )
+
+[node name="MidMusic" type="AudioStreamPlayer" parent="GameWorld"]
+stream = ExtResource( 9 )
+
+[node name="SpaceMusic" type="AudioStreamPlayer" parent="GameWorld"]
+stream = ExtResource( 11 )
 
 [node name="UserInterface" type="Control" parent="."]
 margin_right = 40.0

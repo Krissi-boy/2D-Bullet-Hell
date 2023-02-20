@@ -5,6 +5,7 @@ var money = 0
 
 
 func _ready():
+	_play_cloud_music()
 	new_game()
 	
 func _process(delta):
@@ -30,15 +31,27 @@ func _on_ScoreTimer_timeout():
 		$GameWorld/Clouds/CloudLayer/AnimationPlayer.play("fade_out")
 		$GameWorld/Midnight/MidnightLayer/AnimationPlayer.play("fade_in")
 		
+		$GameWorld/CloudMusic.playing = false
+		_play_mid_music()
+		
 		$GameWorld/Midnight.visible = true
 		
 	if score == 1500:
 		$GameWorld/Midnight/MidnightLayer/AnimationPlayer.play("fade_out")
 		$GameWorld/Space/SpaceLayer/AnimationPlayer.play("fade_in")
 		
+		$GameWorld/MidMusic.playing = false
+		_play_space_music()
+		
 		$GameWorld/Space.visible = true
 	
+func _play_cloud_music():
+	$GameWorld/CloudMusic.play()
 	
-func _paused():
-	pass
-	#$GameWorld/ScoreTimer.stop()
+func _play_mid_music():
+	$GameWorld/MidMusic.play()
+	
+func _play_space_music():
+	$GameWorld/SpaceMusic.play()
+	
+
