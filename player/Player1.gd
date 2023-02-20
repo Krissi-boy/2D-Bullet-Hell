@@ -3,7 +3,6 @@ const UP = Vector2(0, -1)
 signal spawn_laser(location)
 onready var timer := $Timer
 
-var set_speed = 7
 var SPEED = 7
 var FIRE_START = true
 var FIRE_STOP = false
@@ -11,7 +10,7 @@ var screen_size
 
 
 var shield_on = false 
-
+var speed_on = true
 
 
 export var max_health = 5
@@ -144,9 +143,20 @@ func set_shield():
 		$Shield_timer.start(10)
 	else:
 		$ShieldTrans.visible = false
+		
+
+func set_speed(speed_up_amount):
+	$speed_timer.start(10)
+	SPEED = speed_up_amount
+
+	
 
 
 
 func _on_Shield_timer_timeout():
 	shield_on = false
 	set_shield()
+
+
+func _on_speed_timer_timeout():
+	SPEED = 7

@@ -20,13 +20,18 @@ func _on_Player1_spawn_laser(location):
 
 func _on_Power_Ups_spawn_timeout():
 	var health_instance = Health.instance()
-	var x = rng_x.randi_range(100, 400)
+	var x = rng_x.randi_range(600, 400)
 	health_instance.global_position = Vector2(x, -100)#Gjør denne Vectoren random (skal komme nedover)
 	add_child(health_instance)
 	
 	var shield_instance = Shield.instance()
 	shield_instance.global_position = Vector2(x, -100)
 	add_child(shield_instance)
+	
+	var speed_instance = Speed.instance()
+	speed_instance.global_position = Vector2(x, -100)
+	add_child(speed_instance)
+	
 	
 	
 
