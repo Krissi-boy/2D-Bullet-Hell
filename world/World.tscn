@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://world/backgrounds/1CloudScroll.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/backgrounds/2MidnightScroll.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://world/GUI/theme.tres" type="Theme" id=6]
 [ext_resource path="res://world/RetryScreen.gd" type="Script" id=7]
 [ext_resource path="res://player/Player1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://world/World.gd" type="Script" id=9]
+[ext_resource path="res://world/EnemySpawner.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=4]
 size = 60
@@ -25,7 +27,7 @@ size = 25
 font_data = ExtResource( 4 )
 
 [node name="World" type="Node2D"]
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="GameWorld" type="Node2D" parent="."]
 
@@ -43,6 +45,13 @@ autostart = true
 
 [node name="Player1" parent="GameWorld" instance=ExtResource( 8 )]
 position = Vector2( 376, 733 )
+
+[node name="EnemySpawner" type="Node2D" parent="GameWorld"]
+position = Vector2( 384, -87 )
+script = ExtResource( 10 )
+
+[node name="EnemySpawnTimer" type="Timer" parent="GameWorld/EnemySpawner"]
+one_shot = true
 
 [node name="UserInterface" type="Control" parent="."]
 margin_right = 40.0
@@ -122,6 +131,7 @@ uppercase = true
 
 [connection signal="timeout" from="GameWorld/ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="spawn_laser" from="GameWorld/Player1" to="." method="_on_Player1_spawn_laser"]
+[connection signal="timeout" from="GameWorld/EnemySpawner/EnemySpawnTimer" to="GameWorld/EnemySpawner" method="_on_EnemySpawnTimer_timeout"]
 [connection signal="pressed" from="RetryScreen/RetryWindow/RetryButton" to="RetryScreen" method="_on_RetryButton_pressed"]
 [connection signal="pressed" from="RetryScreen/RetryWindow/ShopButton" to="RetryScreen" method="_on_ShopButton_pressed"]
 [connection signal="pressed" from="RetryScreen/RetryWindow/MenuButton" to="RetryScreen" method="_on_MenuButton_pressed"]

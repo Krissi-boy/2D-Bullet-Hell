@@ -2,6 +2,9 @@ extends Node2D
 
 
 var Laser = preload("res://LaserTag.tscn")
+var EnemyFighter = preload("res://enemy/Fighter.tscn")
+var EnemyUfo = preload("res://enemy/Ufo.tscn")
+
 var score = 0
 var money = 0
 
