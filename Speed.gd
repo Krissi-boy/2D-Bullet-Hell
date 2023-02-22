@@ -22,6 +22,7 @@ func _physics_process(delta): # delta er standard for 60 FPS
 func _on_Speed_up_body_entered(body):
 	queue_free()
 	if body.is_in_group("player"):
+		$speed_sound_effect.play()
 		body.speed_on = true 
 		body.set_speed(20)
 		

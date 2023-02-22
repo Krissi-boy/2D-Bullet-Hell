@@ -1,7 +1,7 @@
 extends Area2D
 
 export var LASER_SPEED = 500
-export var harm = 5
+export var harm = 10
 
 func _process(delta):
 	position.y -= LASER_SPEED * delta

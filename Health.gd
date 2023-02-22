@@ -22,6 +22,7 @@ func _physics_process(delta): # delta er standard for 60 FPS
 	
 	
 func _on_Health_up_body_entered(body):
+	$health_pickup_effect.play()
 	body.health = body.max_health 
 	print(body.health)
 	queue_free()

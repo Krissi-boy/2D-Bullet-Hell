@@ -13,9 +13,9 @@ var shield_on = false
 var speed_on = true
 
 
-export var max_health = 5
+export var max_health = 100
 export var health: int = max_health
-export var harm = 2 ## Damage the player does to others on contact (not projectile damage)
+export var harm = 10 ## Damage the player does to others on contact (not projectile damage)
 export var FRICTION = 50
 export var ACCELERATION = 30
 
@@ -56,6 +56,9 @@ func _physics_process(delta): # delta er standard for 60 FPS
 		if timer.is_stopped(): 
 			emit_signal("spawn_laser", BULLET_POSITION.global_position)
 			timer.start(0.5)
+			$shot_sound_effect.play()
+		  
+	
 
 
 func move_state(delta):
@@ -131,11 +134,16 @@ func damage(amount: int): # Når bullets eller noe treffes enemies så kjøres d
 		pass
 	if shield_on == false:
 		health -= amount
+	
+	if health <= 3:
+		$health_low_effect.play()
+		queue_free()
 		
 	if health <= 0:
 		health = 0
 		queue_free()
 		print(self, " died") # died blir printet ut når man dør
+
 
 func set_shield():
 	if shield_on == true:

@@ -16,6 +16,7 @@ func _physics_process(delta): # delta er standard for 60 FPS
 	
 func _on_Shield_up_body_entered(body):
 	if body.is_in_group("player"):
+		$shield_sound_effect.play()
 		body.shield_on = true
 		body.set_shield()
 		queue_free()
