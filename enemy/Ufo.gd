@@ -7,7 +7,7 @@ onready var world = $".."
 export var speed = 200
 export var max_health: int = 5
 export var health: int = max_health
-export var harm = 2 # Damage the enemy does to others on contact (not projectile damage)
+export var harm = 2 # Damage the enemy does to others on contact (not bullet damage)
 
 ## Bullet shooting related variables
 onready var shoot_timer = $ShootTimer
@@ -40,16 +40,17 @@ func _on_ShootTimer_timeout():
 		var bullet = bullet_scene.instance()
 		get_tree().root.add_child(bullet)
 		bullet.position = child.global_position
-		bullet.rotation = child.global_rotation # Rotates to match angle
+		bullet.rotation = child.global_rotation # Rotate to match angle
 		bullet.speed = speed + bullet_speed
+
+var stop_pos = rand_range(100, 400) # Set stop position for when enemy will stop moving
 
 func _physics_process(delta):
 	var new_rotation = shot_rotator.rotation_degrees + shot_rotate_speed * delta
 	shot_rotator.rotation_degrees = fmod(new_rotation, 360)
 	
 #	position += transform.y * speed * delta
-	if position.y < 200:
-		print("enemy stopped")
+	if position.y < stop_pos: # Move enemy to stop position
 		position += transform.y * speed * delta
 
 ## Enemy getting damaged
