@@ -13,16 +13,17 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta): # delta er standard for 60 FPS
-	position.y += 1 #beveg nedover (position.y)
+	position.y += 5 #beveg nedover (position.y)
 	
-	var x = rng_x.randi_range(-10, 1)
-	position.x += 1
+	var x = rng_x.randi_range(-1, 1)
+	position.x 
 	
+
 	
 func _on_Speed_up_body_entered(body):
-	queue_free()
 	if body.is_in_group("player"):
-		$speed_sound_effect.play()
 		body.speed_on = true 
 		body.set_speed(20)
+		queue_free()
+		
 		

@@ -19,7 +19,9 @@ texture = ExtResource( 1 )
 position = Vector2( 2, -2 )
 shape = SubResource( 1 )
 
-[node name="speed_sound_effect" type="AudioStreamPlayer2D" parent="."]
+[node name="speed_sound_effect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -7.586
+pitch_scale = 1.22
 
 [connection signal="body_entered" from="." to="." method="_on_Speed_up_body_entered"]

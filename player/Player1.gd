@@ -135,7 +135,7 @@ func damage(amount: int): # Når bullets eller noe treffes enemies så kjøres d
 	if shield_on == false:
 		health -= amount
 	
-	if health <= 3:
+	if health <= 20:
 		$health_low_effect.play()
 		queue_free()
 		
