@@ -3,7 +3,7 @@ extends Control
 
 func _on_RetryButton_pressed():
 	ButtonPlayerSound.play()
-	get_tree().change_scene("res://world/World.tscn")
+	get_tree().change_scene("res://world/Game.tscn")
 
 
 func _on_ShopButton_pressed():

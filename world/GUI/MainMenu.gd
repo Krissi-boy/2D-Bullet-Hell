@@ -9,7 +9,7 @@ func _on_QuitButton_pressed():
 
 func _on_NewButton_pressed():
 	ButtonPlayerSound.play()
-	get_tree().change_scene("res://world/World.tscn")
+	get_tree().change_scene("res://world/Game.tscn")
 	
 	
 func _on_ShopButton_pressed():

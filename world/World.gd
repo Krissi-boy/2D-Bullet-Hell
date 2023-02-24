@@ -8,10 +8,7 @@ func _ready():
 	_play_cloud_music()
 	new_game()
 	
-func _process(delta):
-	if Input.is_action_pressed("ui_cancel"):
-		$GameUI/GUI/PauseMode/PauseWindow.visible = true
-	
+
 func update_score(score):
 	$ScoreLabel.text = str(score)
 
