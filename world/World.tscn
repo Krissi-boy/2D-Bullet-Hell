@@ -133,6 +133,9 @@ uppercase = true
 
 [node name="GameUI" parent="." instance=ExtResource( 5 )]
 
+[node name="PowerBar" parent="GameUI/GUI/MainUIRect" index="7"]
+max_value = 10.0
+
 [connection signal="timeout" from="GameWorld/ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="spawn_laser" from="GameWorld/Player1" to="." method="_on_Player1_spawn_laser"]
 [connection signal="timeout" from="GameWorld/EnemySpawner/EnemySpawnTimer" to="GameWorld/EnemySpawner" method="_on_EnemySpawnTimer_timeout"]

@@ -18,6 +18,7 @@ export var health: int = max_health
 export var harm = 10 ## Damage the player does to others on contact (not projectile damage)
 export var FRICTION = 50
 export var ACCELERATION = 30
+export var speed_time = 10
 
 var lasertag = preload ("res://LaserTag.tscn")
 onready var BULLET_POSITION = $BulletPosition
@@ -58,8 +59,7 @@ func _physics_process(delta): # delta er standard for 60 FPS
 			emit_signal("spawn_laser", BULLET_POSITION.global_position)
 			timer.start(0.5)
 			$shot_sound_effect.play()
-		  
-	
+		 
 
 
 func move_state(delta):
@@ -135,10 +135,11 @@ func damage(amount: int): # Når bullets eller noe treffes enemies så kjøres d
 		pass
 	if shield_on == false:
 		health -= amount
+		print("health ", health)
 	
 	if health <= 20:
 		$health_low_effect.play()
-		queue_free()
+		
 		
 	if health <= 0:
 		health = 0
@@ -155,7 +156,9 @@ func set_shield():
 		
 
 func set_speed(speed_up_amount):
-	$speed_timer.start(10)
+	$speed_timer.wait_time = speed_time
+	$speed_timer.start(speed_time)
+	
 	SPEED = speed_up_amount
 
 	
@@ -169,3 +172,4 @@ func _on_Shield_timer_timeout():
 
 func _on_speed_timer_timeout():
 	SPEED = 7
+	$speed_timer.stop()

@@ -7,7 +7,7 @@ onready var world = $".."
 export var speed = 200
 export var max_health: int = 5
 export var health: int = max_health
-export var harm = 2 # Damage the enemy does to others on contact (not bullet damage)
+export var harm = 50 # Damage the enemy does to others on contact (not bullet damage)
 
 ## Bullet shooting related variables
 onready var shoot_timer = $ShootTimer

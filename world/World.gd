@@ -23,9 +23,18 @@ func _on_Player1_spawn_laser(location):
 func _ready():
 	new_game()
 	
-func _process(delta):
-	if Input.is_action_pressed("ui_cancel"):
-		$GameUI/GUI/PauseMode/PauseWindow.visible = true
+	
+	
+	
+func _physics_process(delta):
+	
+	$GameUI/GUI/MainUIRect/HealthBar.value = $GameWorld/Player1.health
+	$GameUI/GUI/MainUIRect/PowerBar.value = $GameWorld/Player1/speed_timer.time_left
+	
+	
+	
+	
+	
 	
 func update_score(score):
 	$ScoreLabel.text = str(score)
@@ -71,4 +80,6 @@ func _on_Power_Ups_spawn_timeout():
 	var xxx = rng_x.randi_range(300, 100)
 	speed_instance.global_position = Vector2(xxx, -2500)
 	add_child(speed_instance)
+	
+
 
