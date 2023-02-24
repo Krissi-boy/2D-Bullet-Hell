@@ -45,6 +45,7 @@ func _on_ScoreTimer_timeout():
 		
 		$GameWorld/Space.visible = true
 	
+	
 func _play_cloud_music():
 	$GameWorld/CloudMusic.play()
 	
