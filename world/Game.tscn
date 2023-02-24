@@ -7,13 +7,10 @@
 [ext_resource path="res://world/GUI/theme.tres" type="Theme" id=5]
 [ext_resource path="res://world/GUI/fonts/FutilePro.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://world/RetryScreen.gd" type="Script" id=7]
-[ext_resource path="res://world/World.gd" type="Script" id=8]
-[ext_resource path="res://music sounds/electrode-115161.mp3" type="AudioStream" id=9]
-[ext_resource path="res://music sounds/indigo-946.mp3" type="AudioStream" id=10]
-[ext_resource path="res://music sounds/my-kind-of-madness-mad-scientist-instrumental-electronic-dance-136405.mp3" type="AudioStream" id=11]
 [ext_resource path="res://player/Player1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://world/World.gd" type="Script" id=9]
 [ext_resource path="res://world/EnemySpawner.gd" type="Script" id=10]
+[ext_resource path="res://music sounds/my-kind-of-madness-mad-scientist-instrumental-electronic-dance-136405.mp3" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=4]
 size = 60
@@ -31,7 +28,7 @@ size = 25
 font_data = ExtResource( 6 )
 
 [node name="Game" type="Node2D"]
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="GameWorld" type="Node2D" parent="."]
 
@@ -48,13 +45,12 @@ wait_time = 0.084
 autostart = true
 
 [node name="CloudMusic" type="AudioStreamPlayer" parent="GameWorld"]
-stream = ExtResource( 9 )
 
 [node name="MidMusic" type="AudioStreamPlayer" parent="GameWorld"]
-stream = ExtResource( 10 )
 
 [node name="SpaceMusic" type="AudioStreamPlayer" parent="GameWorld"]
 stream = ExtResource( 11 )
+
 [node name="Player1" parent="GameWorld" instance=ExtResource( 8 )]
 position = Vector2( 376, 733 )
 

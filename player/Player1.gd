@@ -76,12 +76,12 @@ func move_state(delta):
 	
 	if input_vector.x == 1:
 		fire2.visible = FIRE_START # Når høyre knapp trykkes, vil AnimatedSprite (Fire2) vises (true) 
-		$AnimatedSprite.play("run")
+		$AnimatedSprite.play("NASA")
 		player.rotation_degrees = 10
 		
 	elif input_vector.x == -1:
 		fire1.visible = FIRE_START # Når venstre knapp trykkes, vil AnimatedSprite (Fire1) vises (true) 
-		$AnimatedSprite.play("run")
+		$AnimatedSprite.play("NASA")
 		player.rotation_degrees = -10
 		
 	elif input_vector.y == -1:
