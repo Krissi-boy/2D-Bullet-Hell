@@ -13,4 +13,9 @@ position = Vector2( 370, 683 )
 [node name="LaserTag" parent="." instance=ExtResource( 2 )]
 position = Vector2( 368, 536 )
 
+[node name="Power_Ups_spawn" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [connection signal="spawn_laser" from="Player1" to="." method="_on_Player1_spawn_laser"]
+[connection signal="timeout" from="Power_Ups_spawn" to="." method="_on_Power_Ups_spawn_timeout"]

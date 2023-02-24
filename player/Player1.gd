@@ -8,9 +8,14 @@ var FIRE_START = true
 var FIRE_STOP = false
 var screen_size
 
-export var max_health = 5
+
+var shield_on = false 
+var speed_on = true
+
+
+export var max_health = 100
 export var health: int = max_health
-export var harm = 2 ## Damage the player does to others on contact (not projectile damage)
+export var harm = 10 ## Damage the player does to others on contact (not projectile damage)
 export var FRICTION = 50
 export var ACCELERATION = 30
 
@@ -50,8 +55,10 @@ func _physics_process(delta): # delta er standard for 60 FPS
 	if Input.is_action_pressed("fire"):
 		if timer.is_stopped(): 
 			emit_signal("spawn_laser", BULLET_POSITION.global_position)
-			timer.start(0.5) 
-			print("shot")
+			timer.start(0.5)
+			$shot_sound_effect.play()
+		  
+	
 
 
 func move_state(delta):
@@ -123,8 +130,41 @@ func timeout(time):
 	
 ## Player getting damaged
 func damage(amount: int): # Når bullets eller noe treffes enemies så kjøres denne hitboxen 
-	health -= amount
+	if shield_on == true:
+		pass
+	if shield_on == false:
+		health -= amount
+	
+	if health <= 20:
+		$health_low_effect.play()
+		queue_free()
+		
 	if health <= 0:
 		health = 0
 		queue_free()
 		print(self, " died") # died blir printet ut når man dør
+
+
+func set_shield():
+	if shield_on == true:
+		$ShieldTrans.visible = true
+		$Shield_timer.start(10)
+	else:
+		$ShieldTrans.visible = false
+		
+
+func set_speed(speed_up_amount):
+	$speed_timer.start(10)
+	SPEED = speed_up_amount
+
+	
+
+
+
+func _on_Shield_timer_timeout():
+	shield_on = false
+	set_shield()
+
+
+func _on_speed_timer_timeout():
+	SPEED = 7
