@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/health_low_sound_effect.mp3-73f9c96604163c83af4d803cf7f4937b.mp3str"
+
+[deps]
+
+source_file="res://audio/health_low_sound_effect.mp3"
+dest_files=[ "res://.import/health_low_sound_effect.mp3-73f9c96604163c83af4d803cf7f4937b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

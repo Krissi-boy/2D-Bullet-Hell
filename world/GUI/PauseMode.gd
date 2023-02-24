@@ -3,6 +3,7 @@ extends Control
 
 
 func _on_PauseButton_pressed():
+	ButtonPlayerSound.play()
 	$PauseWindow.visible = true
 	
 

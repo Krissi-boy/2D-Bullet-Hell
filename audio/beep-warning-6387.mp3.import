@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/beep-warning-6387.mp3-b898f0cd049f42fb0aa83f1ab669d938.mp3str"
+
+[deps]
+
+source_file="res://audio/beep-warning-6387.mp3"
+dest_files=[ "res://.import/beep-warning-6387.mp3-b898f0cd049f42fb0aa83f1ab669d938.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
