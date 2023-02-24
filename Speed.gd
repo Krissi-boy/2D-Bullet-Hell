@@ -13,7 +13,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta): # delta er standard for 60 FPS
-	position.y += 5 #beveg nedover (position.y)
+	position.y += 2 #beveg nedover (position.y)
 	
 	var x = rng_x.randi_range(-1, 1)
 	position.x 

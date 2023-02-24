@@ -53,6 +53,10 @@ script = ExtResource( 10 )
 [node name="EnemySpawnTimer" type="Timer" parent="GameWorld/EnemySpawner"]
 one_shot = true
 
+[node name="Power_Ups_spawn" type="Timer" parent="GameWorld"]
+wait_time = 10.0
+autostart = true
+
 [node name="UserInterface" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -132,6 +136,7 @@ uppercase = true
 [connection signal="timeout" from="GameWorld/ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="spawn_laser" from="GameWorld/Player1" to="." method="_on_Player1_spawn_laser"]
 [connection signal="timeout" from="GameWorld/EnemySpawner/EnemySpawnTimer" to="GameWorld/EnemySpawner" method="_on_EnemySpawnTimer_timeout"]
+[connection signal="timeout" from="GameWorld/Power_Ups_spawn" to="." method="_on_Power_Ups_spawn_timeout"]
 [connection signal="pressed" from="RetryScreen/RetryWindow/RetryButton" to="RetryScreen" method="_on_RetryButton_pressed"]
 [connection signal="pressed" from="RetryScreen/RetryWindow/ShopButton" to="RetryScreen" method="_on_ShopButton_pressed"]
 [connection signal="pressed" from="RetryScreen/RetryWindow/MenuButton" to="RetryScreen" method="_on_MenuButton_pressed"]

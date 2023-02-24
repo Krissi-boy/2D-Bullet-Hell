@@ -51,6 +51,7 @@ func _physics_process(delta): # delta er standard for 60 FPS
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 	
+	
 
 	if Input.is_action_pressed("fire"):
 		if timer.is_stopped(): 

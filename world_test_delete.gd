@@ -33,10 +33,4 @@ func _on_Power_Ups_spawn_timeout():
 	var xxx = rng_x.randi_range(300, 100)
 	speed_instance.global_position = Vector2(xxx, -5000)
 	add_child(speed_instance)
-	
-	
-	
-
-	
-
 
