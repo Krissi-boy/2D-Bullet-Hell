@@ -46,11 +46,13 @@ func new_game():
 	score = 0
 	$GameWorld/ScoreTimer.start()
 
+
 func game_over():
 	$GameWorld/ScoreTimer.stop()
 	$RetryScreen/RetryWindow.visible = true
 	$GameWorld/EnemySpawner/EnemySpawnTimer.stop()
-
+	$GameWorld/Power_Ups_spawn.stop()
+	
 func _on_ScoreTimer_timeout():
 	score += 1
 	update_score(score)
