@@ -22,6 +22,8 @@ _global_script_class_icons={
 
 config/name="2d- Bullet- Hell"
 run/main_scene="res://world/GUI/MainMenu.tscn"
+config/icon="res://enemy/ufo.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
