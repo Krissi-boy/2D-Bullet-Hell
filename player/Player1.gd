@@ -22,6 +22,7 @@ export var speed_time = 10
 
 var lasertag = preload ("res://LaserTag.tscn")
 onready var BULLET_POSITION = $BulletPosition
+onready var world = $"../.."
 
 enum {
 	MOVING,
@@ -143,7 +144,8 @@ func damage(amount: int): # Når bullets eller noe treffes enemies så kjøres d
 		
 	if health <= 0:
 		health = 0
-		queue_free()
+		visible = false
+		world.game_over()
 		print(self, " died") # died blir printet ut når man dør
 
 

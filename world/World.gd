@@ -24,8 +24,8 @@ func _ready():
 	_play_cloud_music()
 	new_game()
 	
-	
-	
+
+
 	
 func _physics_process(delta):
 	
@@ -48,6 +48,8 @@ func new_game():
 
 func game_over():
 	$GameWorld/ScoreTimer.stop()
+	$RetryScreen/RetryWindow.visible = true
+	$GameWorld/EnemySpawner/EnemySpawnTimer.stop()
 
 func _on_ScoreTimer_timeout():
 	score += 1
