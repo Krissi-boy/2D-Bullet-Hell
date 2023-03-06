@@ -53,6 +53,7 @@ func game_over():
 	$GameWorld/EnemySpawner/EnemySpawnTimer.stop()
 	$GameWorld/Power_Ups_spawn.stop()
 	
+	
 func _on_ScoreTimer_timeout():
 	score += 1
 	update_score(score)
